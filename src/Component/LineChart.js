@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
+
 import 'chartjs-adapter-moment'; 
 
 const LineChart = ({ data }) => {
@@ -14,7 +14,7 @@ const LineChart = ({ data }) => {
           {
             label: 'Combined',
             data: data.map(item => item.cumsum),
-            borderColor: 'rgba(75,192,192,1)',
+            borderColor: 'red',
             backgroundColor: 'rgba(75,192,192,0.4)',
             pointBackgroundColor: 'rgba(75,192,192,1)',
             pointBorderColor: '#fff',
@@ -28,7 +28,7 @@ const LineChart = ({ data }) => {
   }, [data]);
 
   return (
-    <div>
+    <div style={{ height: '300px', width: '100%' }}>
       {chartData && (
         <Line
           data={chartData}
